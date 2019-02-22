@@ -1,2 +1,2 @@
 # whiskey
-Linked data ontology for describing whisky / whiskey 
+Data model for describing whisky / whiskey 
