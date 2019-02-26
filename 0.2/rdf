@@ -1,0 +1,697 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="https://github.com/rdf-models/whiskey#"
+     xml:base="https://github.com/rdf-models/whiskey"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:whis="https://github.com/rdf-models/whiskey"
+     xmlns:bevon="http://rdfs.co/bevon/0.8/rdf">
+    <owl:Ontology rdf:about="https://github.com/rdf-models/whiskey"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- https://github.com/rdf-models/whiskey#finishedIn -->
+
+    <owl:ObjectProperty rdf:about="https://github.com/rdf-models/whiskey#finishedIn">
+        <rdfs:domain rdf:resource="https://github.com/rdf-models/whiskey#Whiskey"/>
+        <rdfs:range rdf:resource="https://github.com/rdf-models/whiskey#FinishingCask"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://github.com/rdf-models/whiskey#hasAgeStatement -->
+
+    <owl:ObjectProperty rdf:about="https://github.com/rdf-models/whiskey#hasAgeStatement">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="https://github.com/rdf-models/whiskey#Whiskey"/>
+        <rdfs:range rdf:resource="https://github.com/rdf-models/whiskey#Age_Statement"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://github.com/rdf-models/whiskey#isOwnedBy -->
+
+    <owl:ObjectProperty rdf:about="https://github.com/rdf-models/whiskey#isOwnedBy"/>
+    
+
+
+    <!-- https://github.com/rdf-models/whiskey#producedBy -->
+
+    <owl:ObjectProperty rdf:about="https://github.com/rdf-models/whiskey#producedBy">
+        <owl:inverseOf rdf:resource="https://github.com/rdf-models/whiskey#produces"/>
+        <rdfs:domain rdf:resource="https://github.com/rdf-models/whiskey#Whiskey"/>
+        <rdfs:range rdf:resource="https://github.com/rdf-models/whiskey#Distillery"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://github.com/rdf-models/whiskey#produces -->
+
+    <owl:ObjectProperty rdf:about="https://github.com/rdf-models/whiskey#produces">
+        <rdfs:domain rdf:resource="https://github.com/rdf-models/whiskey#Distillery"/>
+        <rdfs:range rdf:resource="https://github.com/rdf-models/whiskey#Whiskey"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- https://github.com/rdf-models/whiskey#abv -->
+
+    <owl:DatatypeProperty rdf:about="https://github.com/rdf-models/whiskey#abv">
+        <rdfs:domain rdf:resource="https://github.com/rdf-models/whiskey#Whiskey"/>
+        <rdfs:domain>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://github.com/rdf-models/whiskey#abv"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+            </owl:Restriction>
+        </rdfs:domain>
+        <rdfs:domain>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://github.com/rdf-models/whiskey#abv"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">100</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+            </owl:Restriction>
+        </rdfs:domain>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Alcohol by volume as reported by the distiller or producer</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://github.com/rdf-models/whiskey#bottledInBond -->
+
+    <owl:DatatypeProperty rdf:about="https://github.com/rdf-models/whiskey#bottledInBond">
+        <rdfs:domain rdf:resource="https://github.com/rdf-models/whiskey#Whiskey"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Bottled in bond whiskies must be produced in the United States by a single distiller for at least four years with an ABV of approximately 50</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://github.com/rdf-models/whiskey#inProduction -->
+
+    <owl:DatatypeProperty rdf:about="https://github.com/rdf-models/whiskey#inProduction">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="https://github.com/rdf-models/whiskey#Whiskey"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Indicates if the current entity is still active or is now dead (closed down)</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- https://github.com/rdf-models/whiskey#Age_Statement -->
+
+    <owl:Class rdf:about="https://github.com/rdf-models/whiskey#Age_Statement">
+        <rdfs:comment xml:lang="en">Statement of the age of the whiskey as asserted by the distillery</rdfs:comment>
+        <rdfs:label xml:lang="en">Age Statement</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://github.com/rdf-models/whiskey#Blended_Irish_Whisky -->
+
+    <owl:Class rdf:about="https://github.com/rdf-models/whiskey#Blended_Irish_Whisky">
+        <rdfs:subClassOf rdf:resource="https://github.com/rdf-models/whiskey#Blended_Whiskey"/>
+        <rdfs:subClassOf rdf:resource="https://github.com/rdf-models/whiskey#Irish_Whisky"/>
+        <owl:disjointWith rdf:resource="https://github.com/rdf-models/whiskey#Blended_Scotch"/>
+        <owl:disjointWith rdf:resource="https://github.com/rdf-models/whiskey#Single_Malt_Irish"/>
+        <rdfs:label>Blended Irish Whiskey</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://github.com/rdf-models/whiskey#Blended_Scotch -->
+
+    <owl:Class rdf:about="https://github.com/rdf-models/whiskey#Blended_Scotch">
+        <rdfs:subClassOf rdf:resource="https://github.com/rdf-models/whiskey#Blended_Whiskey"/>
+        <rdfs:subClassOf rdf:resource="https://github.com/rdf-models/whiskey#Scotch"/>
+        <rdfs:label>Blended Scotch</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://github.com/rdf-models/whiskey#Blended_Whiskey -->
+
+    <owl:Class rdf:about="https://github.com/rdf-models/whiskey#Blended_Whiskey">
+        <rdfs:subClassOf rdf:resource="https://github.com/rdf-models/whiskey#Whiskey"/>
+        <rdfs:label>Blended Whiskey</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://github.com/rdf-models/whiskey#Bourbon -->
+
+    <owl:Class rdf:about="https://github.com/rdf-models/whiskey#Bourbon">
+        <rdfs:subClassOf rdf:resource="https://github.com/rdf-models/whiskey#Whiskey"/>
+        <rdfs:comment xml:lang="en">Whiskey produced in the United States with at least 51% corn</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- https://github.com/rdf-models/whiskey#Brand -->
+
+    <owl:Class rdf:about="https://github.com/rdf-models/whiskey#Brand"/>
+    
+
+
+    <!-- https://github.com/rdf-models/whiskey#Canadian_Whisky -->
+
+    <owl:Class rdf:about="https://github.com/rdf-models/whiskey#Canadian_Whisky">
+        <rdfs:subClassOf rdf:resource="https://github.com/rdf-models/whiskey#Whiskey"/>
+        <rdfs:label>Canadian Whisky</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://github.com/rdf-models/whiskey#Corn_Whiskey -->
+
+    <owl:Class rdf:about="https://github.com/rdf-models/whiskey#Corn_Whiskey">
+        <rdfs:subClassOf rdf:resource="https://github.com/rdf-models/whiskey#Straight_Whiskey"/>
+        <rdfs:comment xml:lang="en">Whiskey distilled from a base of at least 80% corn</rdfs:comment>
+        <rdfs:label>Corn Whiskey</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://github.com/rdf-models/whiskey#Country -->
+
+    <owl:Class rdf:about="https://github.com/rdf-models/whiskey#Country"/>
+    
+
+
+    <!-- https://github.com/rdf-models/whiskey#Distillery -->
+
+    <owl:Class rdf:about="https://github.com/rdf-models/whiskey#Distillery"/>
+    
+
+
+    <!-- https://github.com/rdf-models/whiskey#FinishingCask -->
+
+    <owl:Class rdf:about="https://github.com/rdf-models/whiskey#FinishingCask">
+        <rdfs:comment xml:lang="en">Secondary cask in which the whiskey was finished following the primary aging process</rdfs:comment>
+        <rdfs:label>Finishing Cask</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://github.com/rdf-models/whiskey#Flavored_Whiskey -->
+
+    <owl:Class rdf:about="https://github.com/rdf-models/whiskey#Flavored_Whiskey">
+        <rdfs:subClassOf rdf:resource="https://github.com/rdf-models/whiskey#Whiskey"/>
+        <rdfs:label>Flavored Whiskey</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://github.com/rdf-models/whiskey#Irish_Whisky -->
+
+    <owl:Class rdf:about="https://github.com/rdf-models/whiskey#Irish_Whisky">
+        <rdfs:subClassOf rdf:resource="https://github.com/rdf-models/whiskey#Whiskey"/>
+        <rdfs:label>Irish Whisky</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://github.com/rdf-models/whiskey#Japanese_Single_Malt -->
+
+    <owl:Class rdf:about="https://github.com/rdf-models/whiskey#Japanese_Single_Malt">
+        <rdfs:subClassOf rdf:resource="https://github.com/rdf-models/whiskey#Single_Malt_Whiskey"/>
+        <rdfs:label>Japanese Single Malt</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://github.com/rdf-models/whiskey#Japanese_Whiskey -->
+
+    <owl:Class rdf:about="https://github.com/rdf-models/whiskey#Japanese_Whiskey">
+        <rdfs:subClassOf rdf:resource="https://github.com/rdf-models/whiskey#Whiskey"/>
+        <rdfs:label>Japanese Whiskey</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://github.com/rdf-models/whiskey#Kentucky_Straight_Bourbon -->
+
+    <owl:Class rdf:about="https://github.com/rdf-models/whiskey#Kentucky_Straight_Bourbon">
+        <rdfs:subClassOf rdf:resource="https://github.com/rdf-models/whiskey#Straight_Bourbon"/>
+        <rdfs:label>Kentucky Straight Bourbon</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://github.com/rdf-models/whiskey#Region -->
+
+    <owl:Class rdf:about="https://github.com/rdf-models/whiskey#Region">
+        <rdfs:subClassOf rdf:resource="https://github.com/rdf-models/whiskey#Subdivision"/>
+    </owl:Class>
+    
+
+
+    <!-- https://github.com/rdf-models/whiskey#Rye_Whiskey -->
+
+    <owl:Class rdf:about="https://github.com/rdf-models/whiskey#Rye_Whiskey">
+        <rdfs:subClassOf rdf:resource="https://github.com/rdf-models/whiskey#Whiskey"/>
+        <rdfs:comment xml:lang="en">Whiskey produced with at least a 51% rye base</rdfs:comment>
+        <rdfs:label>Rye Whiskey</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://github.com/rdf-models/whiskey#Scotch -->
+
+    <owl:Class rdf:about="https://github.com/rdf-models/whiskey#Scotch">
+        <rdfs:subClassOf rdf:resource="https://github.com/rdf-models/whiskey#Whiskey"/>
+    </owl:Class>
+    
+
+
+    <!-- https://github.com/rdf-models/whiskey#Scottish_Grain_Whisky -->
+
+    <owl:Class rdf:about="https://github.com/rdf-models/whiskey#Scottish_Grain_Whisky">
+        <rdfs:subClassOf rdf:resource="https://github.com/rdf-models/whiskey#Scotch"/>
+        <rdfs:label>Scottish Grain Whiskey</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://github.com/rdf-models/whiskey#Single_Malt_Irish -->
+
+    <owl:Class rdf:about="https://github.com/rdf-models/whiskey#Single_Malt_Irish">
+        <rdfs:subClassOf rdf:resource="https://github.com/rdf-models/whiskey#Irish_Whisky"/>
+        <rdfs:subClassOf rdf:resource="https://github.com/rdf-models/whiskey#Single_Malt_Whiskey"/>
+        <rdfs:label>Single Malt Irish</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://github.com/rdf-models/whiskey#Single_Malt_Scotch -->
+
+    <owl:Class rdf:about="https://github.com/rdf-models/whiskey#Single_Malt_Scotch">
+        <rdfs:subClassOf rdf:resource="https://github.com/rdf-models/whiskey#Scotch"/>
+        <rdfs:subClassOf rdf:resource="https://github.com/rdf-models/whiskey#Single_Malt_Whiskey"/>
+        <rdfs:label>Single Malt Scotch</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://github.com/rdf-models/whiskey#Single_Malt_Whiskey -->
+
+    <owl:Class rdf:about="https://github.com/rdf-models/whiskey#Single_Malt_Whiskey">
+        <rdfs:subClassOf rdf:resource="https://github.com/rdf-models/whiskey#Whiskey"/>
+        <rdfs:label>Single Malt Whiskey</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://github.com/rdf-models/whiskey#Straight_Bourbon -->
+
+    <owl:Class rdf:about="https://github.com/rdf-models/whiskey#Straight_Bourbon">
+        <rdfs:subClassOf rdf:resource="https://github.com/rdf-models/whiskey#Bourbon"/>
+        <rdfs:subClassOf rdf:resource="https://github.com/rdf-models/whiskey#Straight_Whiskey"/>
+        <rdfs:comment xml:lang="en">Bourbon which has been aged for a minimum of two years</rdfs:comment>
+        <rdfs:label>Straight Bourbon</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://github.com/rdf-models/whiskey#Straight_Canadian_Whisky -->
+
+    <owl:Class rdf:about="https://github.com/rdf-models/whiskey#Straight_Canadian_Whisky">
+        <rdfs:subClassOf rdf:resource="https://github.com/rdf-models/whiskey#Canadian_Whisky"/>
+        <rdfs:subClassOf rdf:resource="https://github.com/rdf-models/whiskey#Straight_Whiskey"/>
+        <rdfs:label>Straight Canadian Whisky</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://github.com/rdf-models/whiskey#Straight_Rye -->
+
+    <owl:Class rdf:about="https://github.com/rdf-models/whiskey#Straight_Rye">
+        <rdfs:subClassOf rdf:resource="https://github.com/rdf-models/whiskey#Rye_Whiskey"/>
+        <rdfs:subClassOf rdf:resource="https://github.com/rdf-models/whiskey#Straight_Whiskey"/>
+        <rdfs:label>Straight Rye</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://github.com/rdf-models/whiskey#Straight_Whiskey -->
+
+    <owl:Class rdf:about="https://github.com/rdf-models/whiskey#Straight_Whiskey">
+        <rdfs:subClassOf rdf:resource="https://github.com/rdf-models/whiskey#Whiskey"/>
+        <rdfs:comment xml:lang="en">Whiskey created by distilling a fermented cereal grain mash of more than 80% ABV which is then aged for at least two more years</rdfs:comment>
+        <rdfs:label>Straight Whiskey</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://github.com/rdf-models/whiskey#Subdivision -->
+
+    <owl:Class rdf:about="https://github.com/rdf-models/whiskey#Subdivision">
+        <rdfs:subClassOf rdf:resource="https://github.com/rdf-models/whiskey#Country"/>
+        <rdfs:comment xml:lang="en">An administrative region within a country such as state (United States), province (Canada), or county (England)</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- https://github.com/rdf-models/whiskey#Subregion -->
+
+    <owl:Class rdf:about="https://github.com/rdf-models/whiskey#Subregion">
+        <rdfs:subClassOf rdf:resource="https://github.com/rdf-models/whiskey#Region"/>
+    </owl:Class>
+    
+
+
+    <!-- https://github.com/rdf-models/whiskey#Tennessee_Whiskey -->
+
+    <owl:Class rdf:about="https://github.com/rdf-models/whiskey#Tennessee_Whiskey">
+        <rdfs:subClassOf rdf:resource="https://github.com/rdf-models/whiskey#Straight_Whiskey"/>
+        <rdfs:label>Tennessee Whiskey</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://github.com/rdf-models/whiskey#Vatted_Malt_Scotch -->
+
+    <owl:Class rdf:about="https://github.com/rdf-models/whiskey#Vatted_Malt_Scotch">
+        <rdfs:subClassOf rdf:resource="https://github.com/rdf-models/whiskey#Scotch"/>
+        <rdfs:label>Vatted Malt Scotch</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://github.com/rdf-models/whiskey#Wheat_Whiskey -->
+
+    <owl:Class rdf:about="https://github.com/rdf-models/whiskey#Wheat_Whiskey">
+        <rdfs:subClassOf rdf:resource="https://github.com/rdf-models/whiskey#Straight_Whiskey"/>
+        <rdfs:comment xml:lang="en">Whiskey produced with a grain bill of at least 51% wheat</rdfs:comment>
+        <rdfs:label>Wheat Whiskey</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://github.com/rdf-models/whiskey#Whiskey -->
+
+    <owl:Class rdf:about="https://github.com/rdf-models/whiskey#Whiskey">
+        <rdfs:comment xml:lang="en">Spirit distilled from fermented grains and typically aged in wooden casks</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- https://github.com/rdf-models/whiskey#White_Whiskey -->
+
+    <owl:Class rdf:about="https://github.com/rdf-models/whiskey#White_Whiskey">
+        <rdfs:subClassOf rdf:resource="https://github.com/rdf-models/whiskey#Straight_Whiskey"/>
+        <rdfs:label>White Whiskey</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- https://github.com/rdf-models/whiskey#Arran -->
+
+    <owl:NamedIndividual rdf:about="https://github.com/rdf-models/whiskey#Arran">
+        <rdf:type rdf:resource="https://github.com/rdf-models/whiskey#Subregion"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://github.com/rdf-models/whiskey#Australia -->
+
+    <owl:NamedIndividual rdf:about="https://github.com/rdf-models/whiskey#Australia">
+        <rdf:type rdf:resource="https://github.com/rdf-models/whiskey#Country"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://github.com/rdf-models/whiskey#Campbelltown -->
+
+    <owl:NamedIndividual rdf:about="https://github.com/rdf-models/whiskey#Campbelltown">
+        <rdf:type rdf:resource="https://github.com/rdf-models/whiskey#Subdivision"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://github.com/rdf-models/whiskey#Canada -->
+
+    <owl:NamedIndividual rdf:about="https://github.com/rdf-models/whiskey#Canada">
+        <rdf:type rdf:resource="https://github.com/rdf-models/whiskey#Country"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://github.com/rdf-models/whiskey#Denmark -->
+
+    <owl:NamedIndividual rdf:about="https://github.com/rdf-models/whiskey#Denmark">
+        <rdf:type rdf:resource="https://github.com/rdf-models/whiskey#Country"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://github.com/rdf-models/whiskey#England -->
+
+    <owl:NamedIndividual rdf:about="https://github.com/rdf-models/whiskey#England">
+        <rdf:type rdf:resource="https://github.com/rdf-models/whiskey#Country"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://github.com/rdf-models/whiskey#Germany -->
+
+    <owl:NamedIndividual rdf:about="https://github.com/rdf-models/whiskey#Germany">
+        <rdf:type rdf:resource="https://github.com/rdf-models/whiskey#Country"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://github.com/rdf-models/whiskey#Highland -->
+
+    <owl:NamedIndividual rdf:about="https://github.com/rdf-models/whiskey#Highland">
+        <rdf:type rdf:resource="https://github.com/rdf-models/whiskey#Subdivision"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://github.com/rdf-models/whiskey#Highland_Islands -->
+
+    <owl:NamedIndividual rdf:about="https://github.com/rdf-models/whiskey#Highland_Islands">
+        <rdf:type rdf:resource="https://github.com/rdf-models/whiskey#Region"/>
+        <rdfs:label>Highland Islands</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://github.com/rdf-models/whiskey#India -->
+
+    <owl:NamedIndividual rdf:about="https://github.com/rdf-models/whiskey#India">
+        <rdf:type rdf:resource="https://github.com/rdf-models/whiskey#Country"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://github.com/rdf-models/whiskey#Islay -->
+
+    <owl:NamedIndividual rdf:about="https://github.com/rdf-models/whiskey#Islay">
+        <rdf:type rdf:resource="https://github.com/rdf-models/whiskey#Subregion"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://github.com/rdf-models/whiskey#Japan -->
+
+    <owl:NamedIndividual rdf:about="https://github.com/rdf-models/whiskey#Japan">
+        <rdf:type rdf:resource="https://github.com/rdf-models/whiskey#Country"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://github.com/rdf-models/whiskey#Jura -->
+
+    <owl:NamedIndividual rdf:about="https://github.com/rdf-models/whiskey#Jura">
+        <rdf:type rdf:resource="https://github.com/rdf-models/whiskey#Subregion"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://github.com/rdf-models/whiskey#Kentucky -->
+
+    <owl:NamedIndividual rdf:about="https://github.com/rdf-models/whiskey#Kentucky">
+        <rdf:type rdf:resource="https://github.com/rdf-models/whiskey#Subdivision"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://github.com/rdf-models/whiskey#Lewis -->
+
+    <owl:NamedIndividual rdf:about="https://github.com/rdf-models/whiskey#Lewis">
+        <rdf:type rdf:resource="https://github.com/rdf-models/whiskey#Subregion"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://github.com/rdf-models/whiskey#Lowland -->
+
+    <owl:NamedIndividual rdf:about="https://github.com/rdf-models/whiskey#Lowland">
+        <rdf:type rdf:resource="https://github.com/rdf-models/whiskey#Subdivision"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://github.com/rdf-models/whiskey#Mull -->
+
+    <owl:NamedIndividual rdf:about="https://github.com/rdf-models/whiskey#Mull">
+        <rdf:type rdf:resource="https://github.com/rdf-models/whiskey#Subregion"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://github.com/rdf-models/whiskey#Orkney -->
+
+    <owl:NamedIndividual rdf:about="https://github.com/rdf-models/whiskey#Orkney">
+        <rdf:type rdf:resource="https://github.com/rdf-models/whiskey#Subregion"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://github.com/rdf-models/whiskey#Scotland -->
+
+    <owl:NamedIndividual rdf:about="https://github.com/rdf-models/whiskey#Scotland">
+        <rdf:type rdf:resource="https://github.com/rdf-models/whiskey#Country"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://github.com/rdf-models/whiskey#Skye -->
+
+    <owl:NamedIndividual rdf:about="https://github.com/rdf-models/whiskey#Skye">
+        <rdf:type rdf:resource="https://github.com/rdf-models/whiskey#Subregion"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://github.com/rdf-models/whiskey#Speyside -->
+
+    <owl:NamedIndividual rdf:about="https://github.com/rdf-models/whiskey#Speyside">
+        <rdf:type rdf:resource="https://github.com/rdf-models/whiskey#Region"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://github.com/rdf-models/whiskey#Tennessee -->
+
+    <owl:NamedIndividual rdf:about="https://github.com/rdf-models/whiskey#Tennessee">
+        <rdf:type rdf:resource="https://github.com/rdf-models/whiskey#Subdivision"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://github.com/rdf-models/whiskey#United_States -->
+
+    <owl:NamedIndividual rdf:about="https://github.com/rdf-models/whiskey#United_States">
+        <rdf:type rdf:resource="https://github.com/rdf-models/whiskey#Country"/>
+        <rdfs:label>United States</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://github.com/rdf-models/whiskey#Wales -->
+
+    <owl:NamedIndividual rdf:about="https://github.com/rdf-models/whiskey#Wales">
+        <rdf:type rdf:resource="https://github.com/rdf-models/whiskey#Country"/>
+    </owl:NamedIndividual>
+    <rdf:Description>
+        <rdf:type rdf:resource="https://github.com/rdf-models/whiskey#Whiskey"/>
+    </rdf:Description>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // General axioms
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="https://github.com/rdf-models/whiskey#Blended_Scotch"/>
+            <rdf:Description rdf:about="https://github.com/rdf-models/whiskey#Scottish_Grain_Whisky"/>
+            <rdf:Description rdf:about="https://github.com/rdf-models/whiskey#Single_Malt_Scotch"/>
+            <rdf:Description rdf:about="https://github.com/rdf-models/whiskey#Vatted_Malt_Scotch"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="https://github.com/rdf-models/whiskey#Blended_Whiskey"/>
+            <rdf:Description rdf:about="https://github.com/rdf-models/whiskey#Bourbon"/>
+            <rdf:Description rdf:about="https://github.com/rdf-models/whiskey#Canadian_Whisky"/>
+            <rdf:Description rdf:about="https://github.com/rdf-models/whiskey#Flavored_Whiskey"/>
+            <rdf:Description rdf:about="https://github.com/rdf-models/whiskey#Irish_Whisky"/>
+            <rdf:Description rdf:about="https://github.com/rdf-models/whiskey#Japanese_Whiskey"/>
+            <rdf:Description rdf:about="https://github.com/rdf-models/whiskey#Rye_Whiskey"/>
+            <rdf:Description rdf:about="https://github.com/rdf-models/whiskey#Scotch"/>
+            <rdf:Description rdf:about="https://github.com/rdf-models/whiskey#Single_Malt_Whiskey"/>
+            <rdf:Description rdf:about="https://github.com/rdf-models/whiskey#Straight_Whiskey"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="https://github.com/rdf-models/whiskey#Japanese_Single_Malt"/>
+            <rdf:Description rdf:about="https://github.com/rdf-models/whiskey#Single_Malt_Irish"/>
+            <rdf:Description rdf:about="https://github.com/rdf-models/whiskey#Single_Malt_Scotch"/>
+        </owl:members>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi -->
+
