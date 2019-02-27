@@ -1,3 +1,8 @@
+---
+title: Test Home Page
+layout: default
+---
+
 ==
 HOME PAGE
 ==
