@@ -381,12 +381,67 @@ Superclass
 
 ## Properties
 ### abv
-### finishedIn
-### hasAgeStatement
-### isPartOfSeries
-### isProducedBy
-### produces
-### fromSingleCask
+Alcohol by volume as provided by the distiller between 1 and 100 percent
+
+Domain
+: [Whiskey](#whiskey)
+
 ### bottledInBond
+Boolean assertion of Bottled in Bond status of the whiskey. To be considered Bottled in Bond it must be produced in the United Stats, aged for at least four years, and bottled at approximately 50% ABV.
+
+Domain
+: [Whiskey](#whiskey)
+
+### finishedIn
+Relates whiskey to one or more finishing casks
+
+Domain
+: [Whiskey](#whiskey)
+
+Range
+: [Finishing Cask](#finishingCask)
+
+### fromSingleCask
+Boolean assertion that the whiskey came from a single barrel or cask
+
+Domain
+: [Whiskey](#whiskey)
+
+
+### hasAgeStatement
+Assertion of age statement on a whiskey
+
+Domain
+: [Whiskey](#whiskey)
+
+Range
+: [Age Statement](#ageStatement)
+
 ### inProduction
+Boolean assertion indicating whether the whiskey is currently in active production or has been discontinued
+
+Domain
+: [Whiskey](#whiskey)
+
+### isPartOfSeries
+Asserts collection, brand, or series to which a whiskey belongs in the distillery's product line
+
+Domain
+: [Whiskey](#whiskey)
+
+Range
+: [Series](#series)
+
+### isProducedBy
+__TBD__
+
+### produces
+Assertion of distillery which produced a whiskey
+
+Domain
+: [Distillery](#distillery)
+
+Range
+: [Whiskey](#whiskey)
+
 
